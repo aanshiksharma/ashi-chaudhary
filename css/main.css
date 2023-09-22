@@ -1,0 +1,222 @@
+/* ============ */
+/* Hero Section */
+/* ============ */
+
+.hero {
+  color: white;
+  background: var(--bg-color);
+  min-height: 28rem;
+  padding-block: 3rem;
+  padding-inline: max(1rem, 5%);
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  column-gap: 2rem;
+  row-gap: 3rem;
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero Image */
+.hero-img {
+  aspect-ratio: 4 / 3;
+  width: clamp(350px, 35%, 100%);
+}
+
+.hero-img img {
+  width: 100%;
+}
+
+/* Hero Text */
+.hero-text {
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.75rem;
+  margin-bottom: 0.3em;
+}
+
+/* Animated Arrow pointing towards the bottom of page */
+.animated-arrow {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  translate: -50% 0;
+  transform: translateY(20%);
+  font-size: 1.5rem;
+  animation: arrow_animation 1s infinite ease-in-out alternate forwards;
+}
+
+@keyframes arrow_animation {
+  to {
+    transform: translateY(-80%);
+  }
+}
+
+/* ============= */
+/* ABOUT SECTION */
+/* ============= */
+
+/* Main container that holds all the other content boxes */
+.about {
+  padding-block: 8rem;
+  padding-inline: clamp(0.8rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background: var(--bg-color-2);
+}
+
+/* Main content boxes in which the images and texts are present */
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6rem;
+  padding-block: 4rem;
+}
+
+/* Selecting alternate content boxes to put a reverse row flexbox direction */
+.about-content:nth-of-type(2n) {
+  flex-direction: row-reverse;
+}
+
+/* The image elements in the section */
+.about-img {
+  flex-basis: 200px;
+  aspect-ratio: 4 / 5;
+  border-radius: 7px;
+  position: relative;
+  transform: rotate(-8deg);
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  transition: transform 400ms ease-out;
+}
+
+/* Selecting alternate images to put different transforms on alternate images */
+.about-content:nth-of-type(2n) .about-img {
+  transform: rotate(8deg);
+}
+
+/* After element of an image fo stylisitic techniques */
+.about-img::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 8%;
+  top: 0;
+  background: var(--img-container-after-element-color);
+  z-index: -1;
+  transform: rotate(14deg);
+  border-radius: 7px;
+}
+
+/* Selecting alternate images' after elements for some variations in stylistic techniques */
+.about-content:nth-of-type(2n) .about-img::after {
+  transform: rotate(-12deg);
+  left: -8%;
+}
+
+/* Main text boxes in the section */
+/* The margin-top has to be given a value for lager devices */
+.about-text {
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  border-radius: 7px;
+  background: var(--bg-color);
+}
+
+.about-text h4 {
+  font-size: 1.3rem;
+}
+
+.about-text p {
+  margin-block: 1em;
+}
+
+/* Gallery Preview Section */
+.gallery-preview {
+  text-align: center;
+  margin-block: 2rem;
+}
+
+.gallery-preview p {
+  margin-block: 1em;
+}
+
+/* Preview Images */
+.gallery-preview-images {
+  margin-block: 1em;
+  height: 400px;
+  background: aqua;
+}
+
+/* Review Section with a Form */
+.review {
+  margin-block: 2em;
+  text-align: center;
+}
+
+.review p {
+  margin-block: 1em;
+}
+
+.review-form {
+  margin-block: 3em;
+}
+
+.review-form fieldset {
+  border: 0;
+  display: grid;
+  position: relative;
+  margin-block: 0.5em;
+}
+
+.review-form label {
+  position: absolute;
+  display: block;
+  font-size: 1rem;
+  top: 0;
+  left: 0.2em;
+  color: var(--primary-color);
+  transition: 300ms ease;
+}
+
+.review-form :where(input, textarea)::placeholder {
+  opacity: 0;
+}
+
+.review-form :where(input, textarea):placeholder-shown + label {
+  top: 1em;
+  color: white;
+  opacity: 0.5;
+}
+
+/* Form Submit Button */
+.review-form button {
+  background: var(--primary-color);
+  width: 100%;
+}
+
+/* ============= */
+/* MEDIA QUERIES */
+/* ============= */
+
+@media (max-width: 800px) {
+  .animated-arrow {
+    display: none;
+  }
+}

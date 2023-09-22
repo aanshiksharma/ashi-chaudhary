@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashi Chaudhary</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/utils.css" />
+
+    <!-- Javascipt Link -->
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="logo">Ashi Chaudhary</div>
+
+        <button type="button" class="navbar-toggle-button">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <nav class="primary-navbar">
+          <button type="button" class="navbar-toggle-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+
+          <ul class="primary-navigation">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="gallery.html">Gallery</a></li>
+            <li><a href="author.html">Author</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <h1 class="text-center">GALLERY</h1>
+
+      <section class="gallery-images wrapper-3"></section>
+
+      <div class="image-viewer hidden">
+        <figure class="image-viewer__img">
+          <img src="" />
+        </figure>
+
+        <button type="button" class="btn">
+          <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="image-navigation-buttons">
+          <button type="button" class="btn">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <button type="button" class="btn">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

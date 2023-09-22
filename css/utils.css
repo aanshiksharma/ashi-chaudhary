@@ -1,0 +1,265 @@
+/* ========= */
+/* CSS Reset */
+/* ========= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-color: #1e1e1e;
+  --bg-color-2: #121212;
+  --bg-color-3: #111111;
+  --link-color: rgb(0, 131, 201);
+  --primary-bg-color: #222222;
+
+  --img-container-after-element-color: #1a1a1a;
+
+  --primary-color: #ff69b4;
+  --primary-text-color: #6b6b6b;
+  --shadow-color: #45454580;
+}
+
+/* Body */
+body {
+  background: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+}
+
+/* =============================== */
+/* The h (heading)  tags selectors */
+/* =============================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+  line-height: 1.2;
+}
+
+/*  ========== */
+/* The Header */
+/* ========== */
+
+header {
+  padding: 1rem;
+  background: var(--bg-color-3);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Navigation Bar Toggling Buttons */
+.navbar-toggle-button {
+  outline: 0;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 2rem;
+  width: 1em;
+  height: 1em;
+  display: none;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Navigation */
+.primary-navbar.navbar-visible {
+  transform: translateX(0);
+}
+
+.primary-navbar .navbar-toggle-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.primary-navigation {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.primary-navigation a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  transition: 150ms ease-out;
+  padding-block: 0.5em;
+  border-bottom: 2px solid transparent;
+}
+
+.primary-navigation a:hover {
+  color: white;
+}
+
+.primary-navigation a.active {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+/* ============= */
+/* Media Queries */
+/* ============= */
+
+@media screen and (max-width: 800px) {
+  .navbar-toggle-button {
+    display: grid;
+  }
+
+  .primary-navbar {
+    position: fixed;
+    background: #000;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(360px, 100%);
+    z-index: 444;
+
+    padding-block: 7rem;
+    transform: translateX(100%);
+    transition: transform 350ms ease;
+  }
+
+  .primary-navigation {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-inline: 3rem;
+  }
+}
+
+/* =============== */
+/* Wrapper Classes */
+/* =============== */
+
+.wrapper {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.wrapper-1 {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.wrapper-2 {
+  max-width: 60ch;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.wrapper-2 {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.wrapper-article-1 {
+  max-width: 55ch;
+}
+
+.wrapper-article-2 {
+  max-width: 46ch;
+}
+
+/* If a wrapper div has an hr tag inside, a block margin of 3em is given to it */
+div:has(hr) {
+  margin-block: 3em;
+}
+
+/* =============== */
+/* Utility Classes 
+        1. Colors
+        2. Buttons
+        3. Inputs and Textareas
+        4. Others
+        5. Bootstrap Icons
+*/
+/* =============== */
+
+/* ========= */
+/* 1. Colors */
+/* ========= */
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+/* ==================== */
+/* 2. Buttons and Links */
+/* ==================== */
+
+.button {
+  outline: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 7px;
+  padding: 1em 2em;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link {
+  color: var(--link-color);
+}
+
+/* ======================= */
+/* 3. Inputs and Textareas */
+/* ======================= */
+
+input,
+textarea {
+  background: transparent;
+  color: white;
+  padding: 1em 0.2em;
+  outline: 0;
+  border: 0;
+  border-bottom: 3px solid var(--primary-color);
+  font-size: 1rem;
+  resize: vertical;
+  scrollbar-gutter: stable;
+}
+
+/* ========= */
+/* 4. Others */
+/* ========= */
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ================== */
+/* 5. Bootstrap Icons */
+/* ================== */
+
+.bi::before {
+  display: block;
+}
