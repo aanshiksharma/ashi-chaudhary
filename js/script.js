@@ -1,75 +1,54 @@
-// Navigation Bar Toggle Button's Function
+// ==== CONSTANTS ====
+// Navigation Bar
 const __navbarToggleButtons = document.querySelectorAll(
   ".navbar-toggle-button"
 );
-const navbar = document.querySelector(".primary-navbar");
-
 const navbarToggleButtons = Array.from(__navbarToggleButtons);
 
+const navbar = document.querySelector(".primary-navbar");
+
+// Form
+const url =
+  "https://script.google.com/macros/s/AKfycbx0mwuG6VQqZBUtjHHma32dLUEU6c9WGChALfJLSEr6eA-nwrkBT5QQV8VNvKOqikVt/exec";
+
+const submitButton = document.getElementById("submitButton");
+const form = document.querySelector(".review-form");
+
+const __inputFields = document.querySelectorAll("input, textarea");
+const inputFields = Array.from(__inputFields);
+
+// ==== LOGICS ====
+// Navigation Bar Toggle Button's Functioning
 navbarToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     navbar.classList.toggle("navbar-visible");
   });
 });
 
-// Adding images to the gallery dynamically
-const div = document.querySelector(".gallery-images");
+// Submitting the form
+submitButton.addEventListener("click", () => {
+  submitButton.innerText = "Submitting...";
+  submitButton.blur();
+  setTimeout(() => {
+    submitButton.innerText = "Review Submitted";
+  }, 2000);
+});
 
-const totalImagesCount = 25;
-
-for (index = 0; index < totalImagesCount; index++) {
-  const imgContainer = document.createElement("button");
-  imgContainer.className = "imgButton";
-  imgContainer.setAttribute("type", "button");
-  imgContainer.setAttribute("title", "Click to see Full Image");
-
-  const img = document.createElement("img");
-  img.setAttribute("src", `img/gallery/img-${index + 1}.jpg`);
-
-  imgContainer.appendChild(img);
-  div.appendChild(imgContainer);
-}
-
-// Using Button to open an image dynamically
-const __imgButton = document.querySelectorAll(".imgButton");
-const imgButton = Array.from(__imgButton);
-
-const imgExitButton = document.querySelector(".image-viewer > button");
-
-const __imgNavigationButtons = document.querySelectorAll(
-  ".image-navigation-buttons button"
-);
-
-const imgNavigationButtons = Array.from(__imgNavigationButtons);
-
-const imageViewer = document.querySelector(".image-viewer");
-const imageViewer__Img = document.querySelector(".image-viewer__img img");
-
-let activeImageNumber = 1;
-
-imgButton.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    activeImageNumber = index + 1;
-    imageViewer__Img.src = `img/gallery/img-${activeImageNumber}.jpg`;
-
-    imageViewer.classList.toggle("hidden");
+inputFields.forEach((inputField) => {
+  inputField.addEventListener("keypress", () => {
+    submitButton.innerText = "Submit Review";
   });
 });
 
-imgExitButton.addEventListener("click", () => {
-  imageViewer.classList.toggle("hidden");
-});
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-imgNavigationButtons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    if (index == 0) {
-      if (activeImageNumber == 1) activeImageNumber = totalImagesCount;
-      else activeImageNumber--;
-    } else {
-      if (activeImageNumber == totalImagesCount) activeImageNumber = 1;
-      else activeImageNumber++;
-    }
+  let data = new FormData(form);
 
-    imageViewer__Img.src = `img/gallery/img-${activeImageNumber}.jpg`;
-  });
+  fetch(url, {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.text())
+    .then((finalRes) => console.log(finalRes));
 });

@@ -176,20 +176,21 @@
 
 .review-form {
   margin-block: 3em;
+  display: grid;
+  gap: 1em;
 }
 
 .review-form fieldset {
   border: 0;
   display: grid;
   position: relative;
-  margin-block: 0.5em;
 }
 
 .review-form label {
   position: absolute;
   display: block;
   font-size: 1rem;
-  top: 0;
+  top: -0.5em;
   left: 0.2em;
   color: var(--primary-color);
   transition: 300ms ease;

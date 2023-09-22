@@ -190,7 +190,7 @@
         <h2>Liked this Website?</h2>
         <p>Consider leaving a review!</p>
 
-        <form action="" method="post" class="review-form wrapper-2">
+        <form method="post" class="review-form wrapper-2">
           <fieldset>
             <input
               type="text"
@@ -202,7 +202,7 @@
           </fieldset>
 
           <fieldset>
-            <input type="email" name="Email" id="email" placeholder="Email" />
+            <input type="email" name="email" id="email" placeholder="Email" />
             <label for="email">Email</label>
           </fieldset>
 
@@ -210,14 +210,16 @@
             <textarea
               name="review"
               id="review"
-              rows="4"
+              rows="6"
               placeholder="Review"
             ></textarea>
             <label for="review">Review</label>
           </fieldset>
 
           <fieldset>
-            <button class="button" type="submit">Submit Review</button>
+            <button class="button" id="submitButton" type="submit">
+              Submit Review
+            </button>
           </fieldset>
         </form>
       </section>

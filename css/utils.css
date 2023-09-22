@@ -240,7 +240,8 @@ textarea {
   border: 0;
   border-bottom: 3px solid var(--primary-color);
   font-size: 1rem;
-  resize: vertical;
+  font-family: Inter, sans-serif;
+  resize: none;
   scrollbar-gutter: stable;
 }
 
