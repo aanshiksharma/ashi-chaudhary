@@ -27,11 +27,7 @@ navbarToggleButtons.forEach((button) => {
 
 // Submitting the form
 submitButton.addEventListener("click", () => {
-  submitButton.innerText = "Submitting...";
-  submitButton.blur();
-  setTimeout(() => {
-    submitButton.innerText = "Review Submitted";
-  }, 2000);
+  setTimeout(() => {}, 2000);
 });
 
 inputFields.forEach((inputField) => {
@@ -42,6 +38,8 @@ inputFields.forEach((inputField) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  submitButton.innerText = "Submitting...";
+  submitButton.blur();
 
   let data = new FormData(form);
 
@@ -50,5 +48,5 @@ form.addEventListener("submit", (e) => {
     body: data,
   })
     .then((res) => res.text())
-    .then((finalRes) => console.log(finalRes));
+    .then((finalRes) => (submitButton.innerText = `Review Submitted`));
 });

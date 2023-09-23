@@ -5,7 +5,7 @@
 .hero {
   color: white;
   background: var(--bg-color);
-  min-height: 28rem;
+  min-height: 33rem;
   padding-block: 3rem;
   padding-inline: max(1rem, 5%);
 
@@ -40,23 +40,6 @@
 .hero-text h1 {
   font-size: 2.75rem;
   margin-bottom: 0.3em;
-}
-
-/* Animated Arrow pointing towards the bottom of page */
-.animated-arrow {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  translate: -50% 0;
-  transform: translateY(20%);
-  font-size: 1.5rem;
-  animation: arrow_animation 1s infinite ease-in-out alternate forwards;
-}
-
-@keyframes arrow_animation {
-  to {
-    transform: translateY(-80%);
-  }
 }
 
 /* ============= */
@@ -215,9 +198,3 @@
 /* ============= */
 /* MEDIA QUERIES */
 /* ============= */
-
-@media (max-width: 800px) {
-  .animated-arrow {
-    display: none;
-  }
-}
